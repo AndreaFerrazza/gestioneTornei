@@ -26,8 +26,11 @@ public class GiornataService extends GenericService<Giornata,GiornataRepository>
 	public Giornata creaGiornata(SquadraCompetizione[] casa, SquadraCompetizione[] ospite) {
 		Giornata giornata = new Giornata();
 		
+		Partita partita = new Partita();
 		for(int i = 0; i < casa.length; i++) {
-		//	giornata.getPartite().get
+			partita.setCasa(casa[i]);
+			partita.setOspite(casa[i]);
+			giornata.getPartite().add(partita);
 		}
 		
 		

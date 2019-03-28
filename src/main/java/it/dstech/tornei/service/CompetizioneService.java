@@ -80,8 +80,8 @@ public class CompetizioneService extends GenericService<Competizione, Competizio
 			}
 		}
 	
-		
-		
+		calendarioCompetizione.setCalendario(algoritmoMioDiBergByMe(casa, ospite));
+		return calendarioCompetizione;
 	}
 	
 
@@ -97,7 +97,10 @@ public class CompetizioneService extends GenericService<Competizione, Competizio
 			riporto = casa[1];
 			resto = ospite[ospite.length - 1];
 			
-			//metodo crea giornate da riscrevere
+			if(i%2==0)
+				giornata.add(giornataService.creaGiornata(casa,ospite));
+			else
+				giornata.add(giornataService.creaGiornata(ospite,casa));
 			
 			for(int j = 1; j < casa.length - 1; j++){
 				casa[j] = casa[j + 1] ;
